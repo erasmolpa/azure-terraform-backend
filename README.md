@@ -1,0 +1,1 @@
+[](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/securing-terraform-state-in-azure/ba-p/3787254)
