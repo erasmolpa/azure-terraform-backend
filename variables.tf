@@ -41,6 +41,11 @@ variable "account_replication_type" {
   description = "Azure Storage Account Replication Type (defaults to LRS)"
 }
 
+variable "infrastructure_encryption_enabled" {
+  type        = bool
+  default     = false
+  description = "Should an Azure Management Lock being created?"
+}
 variable "tags" {
   type = map(string)
   default = {

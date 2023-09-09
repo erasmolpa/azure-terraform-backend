@@ -22,13 +22,14 @@ resource "azurerm_management_lock" "rg_lock" {
 }
 
 resource "azurerm_storage_account" "sa_tfstate" {
-  name                            = var.storage_account_name
-  resource_group_name             = azurerm_resource_group.rg_tfstate.name
-  location                        = azurerm_resource_group.rg_tfstate.location
-  account_tier                    = var.account_tier
-  account_replication_type        = var.account_replication_type
-  allow_nested_items_to_be_public = false
-  tags                            = local.all_tags
+  name                              = var.storage_account_name
+  resource_group_name               = azurerm_resource_group.rg_tfstate.name
+  location                          = azurerm_resource_group.rg_tfstate.location
+  account_tier                      = var.account_tier
+  account_replication_type          = var.account_replication_type
+  allow_nested_items_to_be_public   = false
+  infrastructure_encryption_enabled = var.infrastructure_encryption_enabled
+  tags                              = local.all_tags
 }
 
 resource "azurerm_storage_container" "sc_tfstate" {
