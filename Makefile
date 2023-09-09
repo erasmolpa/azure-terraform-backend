@@ -16,6 +16,10 @@ fmt:
 # https://github.com/terraform-linters/tflint install -> brew install tflint
 lint:
     docker run --rm -v $(pwd):/data -t ghcr.io/terraform-linters/tflint
+
+compliance:
+   docker run --rm -v $PWD:/target -i -t eerkunt/terraform-compliance \
+                                            -f example/
 init:
 	terraform init
 
@@ -31,5 +35,4 @@ destroy:
 # https://github.com/shihanng/tfvar Install -> brew install shihanng/tfvar/tfvar
 # https://github.com/terraform-docs/terraform-docs Install -> brew install terraform-docs
 docs:
-	docker run --rm --volume "$(pwd):/terraform-docs" -u $(id -u) quay.io/terraform-docs/terraform-docs:0.16.0 markdown /terraform-docs > MODULE.md
-
+	docker run --rm --volume "$(pwd):/terraform-docs" -u $(id -u) quay.io/terraform-docs/terraform-docs:0.16.0 markdown /terraform-docs > README.md
